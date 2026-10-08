@@ -59,7 +59,7 @@ export function Nav() {
             <Link
               key={l.label}
               to={l.to}
-              hash={"hash" in l ? l.hash : undefined}
+              {...("hash" in l ? { hash: l.hash } : {})}
               className="rounded-full px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
             >
               {l.label}
@@ -111,7 +111,7 @@ export function Nav() {
               <Link
                 key={l.label}
                 to={l.to}
-                hash={"hash" in l ? l.hash : undefined}
+                {...("hash" in l ? { hash: l.hash } : {})}
                 onClick={() => setMenu(false)}
                 className="rounded-2xl px-4 py-3 font-medium hover:bg-accent"
               >
