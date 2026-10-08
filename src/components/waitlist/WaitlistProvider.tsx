@@ -11,7 +11,7 @@ export function WaitlistProvider({ children }: { children: ReactNode }) {
     <Ctx.Provider value={{ open: (s = "modal") => setSource(s) }}>
       {children}
       <Dialog open={source !== null} onOpenChange={(o) => !o && setSource(null)}>
-        <DialogContent className="max-w-md rounded-sheet border-glass-border bg-card p-6 sm:p-8">
+        <DialogContent className="w-[calc(100%-2rem)] max-w-md sm:max-w-md overflow-hidden rounded-sheet border-glass-border bg-card p-6 sm:p-8">
           <DialogHeader className="items-start text-left">
             <LogoMark variant="icon" className="mb-2 size-12" />
             <DialogTitle className="text-h2">Join early access</DialogTitle>

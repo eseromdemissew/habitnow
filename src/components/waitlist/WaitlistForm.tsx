@@ -43,7 +43,7 @@ export function WaitlistForm({ source, tone = "default", className }: { source: 
   const inputId = `wl-${source}`;
 
   return (
-    <div className={cn("w-full", className)}>
+    <div className={cn("@container w-full", className)}>
       <AnimatePresence mode="wait" initial={false}>
         {status.kind === "success" ? (
           <motion.div
@@ -64,7 +64,7 @@ export function WaitlistForm({ source, tone = "default", className }: { source: 
             key="form"
             onSubmit={handleSubmit(onSubmit)}
             noValidate
-            className="flex flex-col gap-2 sm:flex-row"
+            className="flex flex-col gap-2 @md:flex-row"
             exit={{ opacity: 0 }}
           >
             <label htmlFor={inputId} className="sr-only">Email address</label>
