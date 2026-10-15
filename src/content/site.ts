@@ -1,8 +1,8 @@
 /**
  * Site-wide values. Fill these in before launch.
- * - siteUrl: full https origin, e.g. "https://habitnow.app" (used for canonical + OG image)
+ * - siteUrl: full https origin, e.g. "https://habitnow.app" (used for canonical URLs)
  * - contactEmail: shown on legal and support pages
- * - playStoreUrl: when empty, every download button becomes "Join early access"
+ * - playStoreUrl: when empty, download buttons lead to the APK / early-access page
  * - socials: empty entries are hidden
  */
 export const site = {
@@ -28,7 +28,6 @@ export function absoluteUrl(path: string) {
 /** Shared head() builder so every page gets title, description, OG, Twitter and canonical. */
 export function pageHead(opts: { title: string; description: string; path: string }) {
   const canonical = absoluteUrl(opts.path);
-  const og = absoluteUrl("/og.png");
   const meta: Array<Record<string, string>> = [
     { title: opts.title },
     { name: "description", content: opts.description },
@@ -40,9 +39,6 @@ export function pageHead(opts: { title: string; description: string; path: strin
     { name: "twitter:description", content: opts.description },
   ];
   if (canonical) meta.push({ property: "og:url", content: canonical });
-  if (og) {
-    meta.push({ property: "og:image", content: og }, { name: "twitter:image", content: og });
-  }
   const links = canonical ? [{ rel: "canonical", href: canonical }] : [];
   return { meta, links };
 }
