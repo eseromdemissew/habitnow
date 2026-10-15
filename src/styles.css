@@ -213,6 +213,19 @@
   color: var(--foreground);
 }
 
+/* Download artwork keeps text legible independently of the selected theme. */
+.download-hero {
+  background: var(--background);
+}
+.download-veil {
+  background: linear-gradient(90deg, var(--background) 0%, var(--background) 32%, color-mix(in oklch, var(--background) 92%, transparent) 48%, color-mix(in oklch, var(--background) 12%, transparent) 100%);
+}
+@media (max-width: 639px) {
+  .download-veil {
+    background: color-mix(in oklch, var(--background) 94%, transparent);
+  }
+}
+
 /* Type ramp (fluid) */
 @utility text-display {
   font-family: var(--font-display);

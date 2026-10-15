@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 const LINKS = [
   { to: "/", hash: "features", label: "Features" },
   { to: "/", hash: "playground", label: "Try it" },
+  { to: "/download", label: "Download" },
   { to: "/roadmap", label: "Roadmap" },
   { to: "/support", label: "Support" },
 ] as const;
@@ -85,7 +86,7 @@ export function Nav() {
           >
             {isDark ? <Sun className="size-5" aria-hidden /> : <Moon className="size-5" aria-hidden />}
           </button>
-          <DownloadButton source="nav" size="default" className="hidden h-10 px-4 text-sm sm:inline-flex" label="Early access" />
+          <DownloadButton source="nav" size="default" className="hidden h-10 px-4 text-sm sm:inline-flex" label="Get the app" />
           <button
             type="button"
             className="grid size-10 place-items-center rounded-full hover:bg-accent md:hidden"
