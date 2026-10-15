@@ -11,7 +11,7 @@ export function useApkDownload() {
     const timeout = setTimeout(() => controller.abort(), 8000);
     fetch(APK_URL, { method: "HEAD", cache: "no-store", signal: controller.signal })
       .then((response) => {
-        const type = response.headers.get("content-type")?.split(";")[0].trim();
+        const type = response.headers.get("content-type")?.split(";")[0]?.trim();
         const binary = type === "application/vnd.android.package-archive" || type === "application/octet-stream" || type === "application/zip";
         setStatus(response.ok && binary && response.headers.get("content-length") !== "0" ? "available" : "unavailable");
       })
