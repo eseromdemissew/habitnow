@@ -1,4 +1,7 @@
 # Completion checklist
+- [ ] Add polished developer attribution and portfolio link.
+- [ ] Replace the starter README with accurate HabitNow documentation.
+- [ ] Verify developer credit and portfolio link in the website.
 - [x] Build a polished download page with honest availability and installation help.
 - [x] Connect download navigation and document the APK location.
 - [x] Check public pages, signup, and desktop/mobile presentation.
