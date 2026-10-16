@@ -41,6 +41,10 @@ export function Nav() {
   const isDark = resolved !== "light";
 
   return (
+    <>
+    <div className="scroll-progress-track" aria-hidden>
+      <motion.div className="scroll-progress-bar" style={{ scaleX: progress }} />
+    </div>
     <header className="pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center px-3 pt-3 sm:pt-4">
       <motion.div
         ref={pillRef}
@@ -130,5 +134,6 @@ export function Nav() {
       )}
       <CommandSearch open={cmd} onOpenChange={setCmd} />
     </header>
+    </>
   );
 }
