@@ -61,7 +61,7 @@ export function Nav() {
               key={l.label}
               to={l.to}
               {...("hash" in l ? { hash: l.hash } : {})}
-              className="rounded-full px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+              className="shrink-0 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
             >
               {l.label}
             </Link>

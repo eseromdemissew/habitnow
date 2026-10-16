@@ -122,6 +122,41 @@ export const site = {
 
 Requires **Android 8.0+**. Users may need to allow “Install unknown apps” for their browser; the Download page explains this.
 
+### How visitors install the app
+
+1. Open the **Download** page on an Android phone.
+2. Tap **Download APK**.
+3. Open the downloaded file and allow installs from the browser if asked.
+4. Tap **Install**, then open HabitNow.
+
+> 💡 When `playStoreUrl` is set, every download button points to Google Play instead.
+
+## 🗄️ Backend & data
+
+| Table | Purpose | Visitor access |
+| --- | --- | --- |
+| `waitlist` | Early-access signups | Insert only |
+| `contact_messages` | Support form messages | Insert only |
+
+Row-level security ensures visitors can submit forms but can never read other people's data.
+
+## ♿ Accessibility & performance
+
+- Skip-to-content link, keyboard navigation and visible focus states
+- Respects reduced-motion preferences
+- Semantic HTML with labelled navigation and forms
+- Server-side rendering for fast first load and good SEO
+- Bundled fonts — no external font requests
+
+## 🌗 Themes
+
+| Theme | Best for |
+| --- | --- |
+| System | Follows the device setting |
+| Light | Bright, airy daytime look |
+| Dark | Comfortable evening reading |
+| AMOLED | True black for OLED screens and battery savings |
+
 ## 📜 Scripts
 
 | Command | Description |
@@ -140,6 +175,20 @@ Requires **Android 8.0+**. Users may need to allow “Install unknown apps” fo
 - [ ] Add the Play Store URL when the listing is live
 - [ ] Review privacy policy and terms
 - [ ] Test installation on a real Android phone
+
+## 🤝 Contributing
+
+1. Fork the repository and create a branch: `git checkout -b feature/my-change`
+2. Make your changes and run `npm run lint` and `npm test`
+3. Open a pull request with a clear description
+
+## ❓ FAQ
+
+**Is HabitNow free?** The website and early access are free to join.
+
+**Is there an iOS version?** Not yet — HabitNow currently targets Android.
+
+**Where do I put the APK?** In `public/downloads/habitnow.apk`.
 
 ## 👨‍💻 Developer
 
