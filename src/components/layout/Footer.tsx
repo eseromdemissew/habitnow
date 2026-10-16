@@ -41,8 +41,19 @@ export function Footer() {
           ))}
         </nav>
       </div>
-      <div className="container-site border-t py-6 text-sm text-muted-foreground">
-        © {new Date().getFullYear()} {site.name}. Android is a trademark of Google LLC.
+      <div className="container-site flex flex-col gap-2 border-t py-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+        <span>© {new Date().getFullYear()} {site.name}. Android is a trademark of Google LLC.</span>
+        <span>
+          Designed & developed by{" "}
+          <a
+            href="https://eserom.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-foreground underline underline-offset-4 hover:text-primary"
+          >
+            Eserom Demissew
+          </a>
+        </span>
       </div>
     </footer>
   );
