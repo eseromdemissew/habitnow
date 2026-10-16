@@ -28,8 +28,13 @@ The official website for **HabitNow**, an Android app for routines, habits and f
 - [Project structure](#-project-structure)
 - [Configuration](#-configuration)
 - [Download & APK](#-download--apk)
+- [Backend & data](#️-backend--data)
+- [Accessibility & performance](#-accessibility--performance)
+- [Themes](#-themes)
 - [Scripts](#-scripts)
 - [Launch checklist](#-launch-checklist)
+- [Contributing](#-contributing)
+- [FAQ](#-faq)
 - [Developer](#-developer)
 
 ---
