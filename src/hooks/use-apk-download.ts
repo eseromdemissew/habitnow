@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const APK_URL = "/downloads/habitnow.apk";
+export const APK_URL = "https://github.com/eseromdemissew/habitnow/releases/download/v1.0.0/HabitNow-v1.0.0.apk";
 type ApkStatus = "checking" | "available" | "unavailable";
 
 /** Check the actual file, not an HTML fallback returned for a missing public asset. */
