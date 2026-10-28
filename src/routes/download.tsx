@@ -27,10 +27,6 @@ function DownloadPage() {
             <h1 className="mt-6 font-display text-4xl font-bold leading-tight sm:text-5xl">Download HabitNow</h1>
             <p className="mt-5 max-w-md text-lg leading-relaxed text-muted-foreground">A little more structure.<br />A lot more room for what matters.</p>
             <p className="mt-4 max-w-md leading-relaxed text-muted-foreground">Your habits, daily routines and focus time. Together in one Android planner.</p>
-            <div className="mt-7 flex items-center gap-2 text-sm font-medium" role="status" aria-live="polite">
-              {status === "checking" ? <Loader2 className="size-4 animate-spin" aria-hidden /> : <span className={`size-2 rounded-full ${available || hasPlayStore ? "bg-mint" : "bg-peach"}`} />}
-              {status === "checking" ? "Checking download availability…" : available ? "Android APK available" : hasPlayStore ? "Available on Google Play" : "In development · Join early access"}
-            </div>
             <div className="mt-5 flex flex-wrap gap-3">
               <Button variant="mint" size="pill" asChild>
                 <a href={APK_URL} download="HabitNow-v1.0.0.apk" rel="noopener noreferrer">
@@ -39,9 +35,6 @@ function DownloadPage() {
               </Button>
               {hasPlayStore && <Button variant={available ? "outline" : "mint"} size="pill" asChild><a href={site.playStoreUrl} target="_blank" rel="noopener noreferrer"><Smartphone aria-hidden />Google Play</a></Button>}
             </div>
-            {status === "unavailable" && !hasPlayStore && <div className="mt-5 max-w-md"><p className="mb-3 text-sm text-muted-foreground">The app download isn't available yet. Get one email when it lands.</p><WaitlistForm source="download-page" tone="default" className="max-w-md" /></div>}
-            <p className="mt-5 flex items-center gap-2 text-sm text-muted-foreground"><Smartphone className="size-4" aria-hidden />For Android phones · iOS not available</p>
-          </div>
         </div>
       </section>
 
