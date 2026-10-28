@@ -32,7 +32,7 @@ function DownloadPage() {
               {status === "checking" ? "Checking download availability…" : available ? "Android APK available" : hasPlayStore ? "Available on Google Play" : "In development · Join early access"}
             </div>
             <div className="mt-5 flex flex-wrap gap-3">
-              {available && <Button variant="mint" size="pill" asChild><a href={APK_URL} download="habitnow.apk"><ArrowDownToLine aria-hidden />Download APK</a></Button>}
+              {available && <Button variant="mint" size="pill" asChild><a href={APK_URL} download="HabitNow-v1.0.0.apk"><ArrowDownToLine aria-hidden />Download APK</a></Button>}
               {hasPlayStore && <Button variant={available ? "outline" : "mint"} size="pill" asChild><a href={site.playStoreUrl} target="_blank" rel="noopener noreferrer"><Smartphone aria-hidden />Google Play<ArrowUpRight aria-hidden /></a></Button>}
             </div>
             {status === "unavailable" && !hasPlayStore && <div className="mt-5 max-w-md"><p className="mb-3 text-sm text-muted-foreground">The app download isn't available yet. Get one email when it launches.</p><WaitlistForm source="download-page" /></div>}
