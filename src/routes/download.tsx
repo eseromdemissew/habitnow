@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { WaitlistForm } from "@/components/waitlist/WaitlistForm";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { LogoMark } from "@/components/brand/Logo";
-import { APK_URL, useApkDownload } from "@/hooks/use-apk-download";
+import { APK_URL } from "@/hooks/use-apk-download";
 import downloadArt from "@/assets/download-still-life.jpg";
 
 export const Route = createFileRoute("/download")({
@@ -14,8 +14,8 @@ export const Route = createFileRoute("/download")({
 });
 
 function DownloadPage() {
-  const status = useApkDownload();
-  const available = status === "available";
+  const available = true;
+
   return (
     <main className="pb-20">
       <section className="download-hero relative isolate overflow-hidden border-b pt-28 sm:pt-32">
@@ -33,14 +33,25 @@ function DownloadPage() {
                   <ArrowDownToLine aria-hidden /> Download APK
                 </a>
               </Button>
-              {hasPlayStore && <Button variant={available ? "outline" : "mint"} size="pill" asChild><a href={site.playStoreUrl} target="_blank" rel="noopener noreferrer"><Smartphone aria-hidden />Google Play</a></Button>}
+              {hasPlayStore && (
+                <Button variant={available ? "outline" : "mint"} size="pill" asChild>
+                  <a href={site.playStoreUrl} target="_blank" rel="noopener noreferrer">
+                    <Smartphone aria-hidden /> Google Play
+                  </a>
+                </Button>
+              )}
             </div>
+          </div>
         </div>
       </section>
 
       <section className="border-b bg-surface">
         <div className="container-site grid gap-6 py-8 sm:grid-cols-3">
-          {[{ icon: ListChecks, title: "Build your rhythm", text: "Habits & daily routines", color: "bg-tile-violet text-primary" }, { icon: Timer, title: "Make time to focus", text: "Timers & distraction-free sessions", color: "bg-tile-peach text-primary" }, { icon: CircleCheck, title: "Stay on track", text: "Routine check-ins and progress", color: "bg-tile-mint text-primary" }].map((item) => (
+          {[
+            { icon: ListChecks, title: "Build your rhythm", text: "Habits & daily routines", color: "bg-tile-violet text-primary" },
+            { icon: Timer, title: "Make time to focus", text: "Timers & distraction limits", color: "bg-tile-mint text-primary" },
+            { icon: CircleCheck, title: "Stay consistent", text: "Daily check-ins and momentum", color: "bg-tile-amber text-primary" },
+          ].map((item) => (
             <article key={item.title} className="rounded-3xl border bg-card p-5 shadow-soft">
               <div className={`grid size-11 place-items-center rounded-2xl ${item.color}`}>
                 <item.icon className="size-5" aria-hidden />
@@ -57,9 +68,13 @@ function DownloadPage() {
           <p className="eyebrow text-muted-foreground">From download to day one</p>
           <h2 className="mt-3 font-display text-3xl font-semibold">Install. Open. Start fresh.</h2>
           <ol className="mt-8 space-y-7">
-            {[{ title: "Download the Android APK", body: "Save the APK using the button above. When the release is ready, you can install it on compatible Android devices." }, { title: "Allow app installs", body: "Android may ask you to allow installs from unknown sources. That’s normal for APK installs and is required before the app can open." }, { title: "Set up your first routine", body: "Choose a few habits and focus blocks, then start building momentum with a small plan for today." }].map((step) => (
+            {[
+              { title: "Download the Android APK", body: "Save the APK using the button above. When the release is ready, you can install it on compatible Android devices." },
+              { title: "Allow app installs", body: "On Android, open the downloaded file and allow installation from this source when prompted." },
+              { title: "Launch HabitNow", body: "Open the app and start with your first routine or habit streak." },
+            ].map((step, index) => (
               <li key={step.title} className="flex gap-4">
-                <span className="grid size-8 shrink-0 place-items-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">{step.title.startsWith("Download") ? "1" : step.title.startsWith("Allow") ? "2" : "3"}</span>
+                <span className="grid size-8 shrink-0 place-items-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">{index + 1}</span>
                 <div>
                   <h3 className="font-semibold">{step.title}</h3>
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{step.body}</p>
@@ -83,10 +98,10 @@ function DownloadPage() {
       <section className="container-site max-w-3xl border-t pt-12">
         <h2 className="font-display text-2xl font-semibold">Download questions</h2>
         <Accordion type="single" collapsible className="mt-5">
-          <AccordionItem value="availability"><AccordionTrigger>Why can't I download the app yet?</AccordionTrigger><AccordionContent className="leading-relaxed text-muted-foreground">The APK is hosted on our GitHub release and may take a few minutes to appear after a new build. If the file isn’t available yet, join early access to be notified.</AccordionContent></AccordionItem>
-          <AccordionItem value="warnings"><AccordionTrigger>Why does Android show an installation warning?</AccordionTrigger><AccordionContent className="leading-relaxed text-muted-foreground">Android warns about installing apps from sources outside Google Play. That’s expected for APK installs, and it’s safe when the file comes from HabitNow’s official release.</AccordionContent></AccordionItem>
-          <AccordionItem value="updates"><AccordionTrigger>How do I update an APK installation?</AccordionTrigger><AccordionContent className="leading-relaxed text-muted-foreground">Download a newer release and install it over the previous version. Android will replace the older app with the latest build.</AccordionContent></AccordionItem>
-          <AccordionItem value="ios"><AccordionTrigger>Can I use HabitNow on iPhone?</AccordionTrigger><AccordionContent className="leading-relaxed text-muted-foreground">This download is for Android devices only. iPhone support isn’t available yet.</AccordionContent></AccordionItem>
+          <AccordionItem value="availability"><AccordionTrigger>Why can't I download the app yet?</AccordionTrigger><AccordionContent className="leading-relaxed text-muted-foreground">The APK is hosted on the official GitHub release and is ready to download when the file is published.</AccordionContent></AccordionItem>
+          <AccordionItem value="warnings"><AccordionTrigger>Why does Android show an installation warning?</AccordionTrigger><AccordionContent className="leading-relaxed text-muted-foreground">Android shows a warning when you install apps from outside the Play Store. This is expected for direct APK installs and is safe when the file is from the official HabitNow release.</AccordionContent></AccordionItem>
+          <AccordionItem value="updates"><AccordionTrigger>How do I update an APK installation?</AccordionTrigger><AccordionContent className="leading-relaxed text-muted-foreground">Download the newest release from the same GitHub release page and install the new APK over the older one.</AccordionContent></AccordionItem>
+          <AccordionItem value="ios"><AccordionTrigger>Can I use HabitNow on iPhone?</AccordionTrigger><AccordionContent className="leading-relaxed text-muted-foreground">This download is for Android only. The app is built for Android devices.</AccordionContent></AccordionItem>
         </Accordion>
       </section>
     </main>
